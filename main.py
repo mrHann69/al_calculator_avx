@@ -21,11 +21,13 @@ def generar_menu(opciones, opcion_salida):
 
 def menu_principal():
     opciones = {
-        '1': ('Opción 1', accion1),
-        '2': ('Opción 2', accion2),
-        '3': ('Opción 3', accion3),
-        '4': ('Opción 4', accion4),
-        '5': ('Salir', salir)
+        '1': ('Opción 1 - Vector x Escalar - C', accion1),
+        '2': ('Opción 2 - Vector x Escalar (AVX) - C', accion2),
+        '3': ('Opción 3 - Vector x Escalar - Py', accion3),
+        '4': ('Opción 4 - Vector x Vector - C', accion4),
+        '5': ('Opción 5 - Vector x Vector (AVX)- C', accion5),
+        '6': ('Opción 6 - Vector x Vector - Py', accion6),
+        '7': ('Salir', salir)
     }
 
     generar_menu(opciones, '5')
@@ -41,6 +43,12 @@ def accion3():
 
 def accion4():
     print('Has elegido la opción 4')
+
+def accion5():
+    print('Has elegido la opción 5')
+
+def accion6():
+    print('Has elegido la opción 6')
 
 def salir():
     print('Saliendo')
