@@ -30,7 +30,7 @@ def menu_principal():
         '7': ('Salir', salir)
     }
 
-    generar_menu(opciones, '5')
+    generar_menu(opciones, '7')
 
 def accion1():
     print('Has elegido la opción 1')
