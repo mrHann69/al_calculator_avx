@@ -1,3 +1,5 @@
+from funciones_py import pyalops
+
 def mostrar_menu(opciones):
     print('Seleccione una opción:')
     for clave in sorted(opciones):
@@ -39,7 +41,9 @@ def accion2():
     print('Has elegido la opción 2')
 
 def accion3():
+    vxepy = pyalops.vector_x_escalar()
     print('Has elegido la opción 3')
+    print('vector x escalar - py : %s' % vxepy)
 
 def accion4():
     print('Has elegido la opción 4')
@@ -48,7 +52,9 @@ def accion5():
     print('Has elegido la opción 5')
 
 def accion6():
+    vxvpy = pyalops.p_punto_py()
     print('Has elegido la opción 6')
+    print("vector x vector - py : %s" % vxvpy)
 
 def salir():
     print('Saliendo')
