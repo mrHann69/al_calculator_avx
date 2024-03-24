@@ -31,17 +31,14 @@ double dotProduct(const double* vec1, const double* vec2, int length) {
     return result[0] + result[1] + result[2] + result[3];
 }
 
-int main(int argc, char* argv[]) {
+double calculateDotPoint (int argc, char* argv[]) {
     // Example vectors
     int vectorSize;
     int i;
     double *vector1;
     double *vector2;
 
-    if (argc == 1)
-        vectorSize = VECTORSIZE;
-    else
-        vectorSize = atoi(argv[1]);
+    vectorSize = VECTORSIZE;
 
     vector1 = (double*)malloc(sizeof(double) * vectorSize);
     assert(vector1 != NULL);
@@ -55,9 +52,5 @@ int main(int argc, char* argv[]) {
 
     // Calculate the dot product
     double result = dotProduct(vector1, vector2, vectorSize);
-
-    // Print the result
-    printf("Dot Product: %lf\n", result);
-
-    return 0;
+    return result;
 }

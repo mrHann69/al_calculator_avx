@@ -31,7 +31,6 @@ def menu_principal():
         '6': ('Opción 6 - Vector x Vector - Py', accion6),
         '7': ('Salir', salir)
     }
-
     generar_menu(opciones, '7')
 
 def accion1():
