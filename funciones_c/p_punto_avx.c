@@ -31,7 +31,7 @@ double dotProduct(const double* vec1, const double* vec2, int length) {
     return result[0] + result[1] + result[2] + result[3];
 }
 
-double calculateDotPoint (int argc, char* argv[]) {
+double calculateDotPointAvx (int argc, char* argv[]) {
     // Example vectors
     int vectorSize;
     int i;
