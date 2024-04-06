@@ -2,9 +2,21 @@ from funciones_py import pyalops
 import ctypes
 
 fppc = ctypes.CDLL('funciones_c/p_punto.c.so')
+fppc.calculateDotPoint.argtypes = [ctypes.c_int]
+fppc.calculateDotPoint.restype = ctypes.POINTER(ctypes.c_double)
+
 fppcavx = ctypes.CDLL('funciones_c/p_punto_avx.c.so')
+fppcavx.calculateDotPointAvx .argtypes = [ctypes.c_int]
+fppcavx.calculateDotPointAvx .restype = ctypes.POINTER(ctypes.c_double)
+
 fvesc = ctypes.CDLL('funciones_c/vector_x_escalar.c.so')
+fvesc.vectorXescalar.argtypes = [ctypes.c_int]
+fvesc.vectorXescalar.restype = ctypes.POINTER(ctypes.c_double)
+
 fvescavx = ctypes.CDLL('funciones_c/vector_x_escalar_avx.c.so')
+fvescavx.vectorXescalarAVX.argtypes = [ctypes.c_int]
+fvescavx.vectorXescalarAVX.restype = ctypes.POINTER(ctypes.c_double)
+
 
 def mostrar_menu(opciones):
     print('Seleccione una opción:')
@@ -40,14 +52,16 @@ def menu_principal():
     generar_menu(opciones, '7')
 
 def accion1():
-    resultVxE = fvesc.vectorXescalar()
+    vector_ptr = fvesc.vectorXescalar(4)
+    vector = [vector_ptr[i] for i in range(4)]
     print('Has elegido la opción 1')
-    print('Vector x Escalar - C: %s' % resultVxE)
+    print(f"Vector x Escalar - C: {vector}")
 
 def accion2():
-    resultVxEAVX = fvescavx.vectorXescalarAVX()
+    vector_ptr = fvescavx.vectorXescalarAVX(4)
+    vector = [vector_ptr[i] for i in range(4)]
     print('Has elegido la opción 2')
-    print('Vector x Escalar (AVX) - C: %s' % resultVxEAVX)
+    print(f"Vector x Escalar (AVX) - C: {vector}")
 
 def accion3():
     vxepy = pyalops.vector_x_escalar()
@@ -74,4 +88,3 @@ def salir():
 
 if __name__ == '__main__':
     menu_principal()
-    

@@ -5,19 +5,18 @@
 #define VECTORSIZE 4
 
 // Function to perform vector-scalar multiplication
-double *vectorScalarMultiply(const double* vector, double scalar, double* result, int length) {
+void vectorScalarMultiply(const double* vector, double scalar, double* result, int length) {
     for (int i = 0; i < length; i++) {
       result[i] = vector[i] * scalar;
     }
-    return result;
 }
 
-double vectorXescalar(){
+double* vectorXescalar(int sizee){
     // Example data
     int vectorSize;
-    double *vector;
+    double* vector;
     double scalar = 2.0;
-    double *result;
+    double* result;
 
     vectorSize = VECTORSIZE;
     vector = (double*)malloc(sizeof(double)*vectorSize);
@@ -31,7 +30,6 @@ double vectorXescalar(){
     }
 
     // Perform vector-scalar multiplication
-    double *aux = vectorScalarMultiply(vector, scalar, result, vectorSize);
-
-    return *aux;
+    vectorScalarMultiply(vector, scalar, result, vectorSize);
+    return result;
 }
